@@ -19,8 +19,6 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: gradle
-    - name: Build with Gradle
-      run: ./gradlew build
     - name: Cache SonarCloud packages
       uses: actions/cache@v1
       with:
