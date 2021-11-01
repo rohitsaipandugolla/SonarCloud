@@ -1,0 +1,38 @@
+version: "3"
+services:
+  frontend:
+    container_name: frontend
+    image: rohitsaipandugolla/greencommutefe
+    ports:
+      - "8080:80"
+
+  jobservice:
+    image: rohitsaipandugolla/jobservicebe
+    ports:
+      - "5002:8081"
+    depends_on:
+      - postgresql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  postgresql:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+
+  organizationservice:
+    image: rohitsaipandugolla/organizationservicebe
+    ports:
+      - "5001:8081"
+    depends_on:
+      - postgresql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
