@@ -28,9 +28,9 @@ buildscript {
 }
 sonarqube {
     properties {
-        property "sonar.projectKey", "BC16-greencommute-be"
-        property "sonar.organization", "zemoso-int"
-        property "sonar.host.url", "https://sonarcloud.io"
+       property "sonar.projectKey", "rohitsaipandugolla_SonarCloud"
+    property "sonar.organization", "rohitsaipandugolla"
+    property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.coverage.exclusions", "**/entity/**"
         property "sonar.coverage.jacoco.xmlReportPaths", "${rootDir}/build/reports/jacoco/codeCoverageReport/codeCoverageReport.xml"
         property "sonar.coverage.jacoco.htmlReportPath", "${rootDir}/build/reports/jacoco/codeCoverageReport/codeCoverageReport.html"
