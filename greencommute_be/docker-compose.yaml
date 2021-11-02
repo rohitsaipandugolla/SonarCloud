@@ -45,5 +45,6 @@ services:
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     networks:
       - local
+
 networks:
   local:
